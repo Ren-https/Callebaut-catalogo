@@ -1,0 +1,138 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* width: 1080px; */
+  margin: 0 auto;
+  padding: 8rem 20px 40px;
+  background-color: #ecebe4;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin: -37rem auto 25rem;
+}
+
+.backButton {
+  position: absolute;
+  top: 8rem;
+  left: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.homeButton {
+  position: absolute;
+  top: 8rem;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.backIcon,
+.homeIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.content {
+  width: 900px;
+  margin: 0 auto;
+  background-color: #4A2222;
+  border-radius: 30px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.title {
+  font-size: 48px;
+  color: #FFFFFF;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 48px;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+
+  opacity: 0.9;
+  max-width: 800px;
+}
+
+.qrCodeContainer {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.qrCode {
+  width: 400px;
+  height: 400px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    width: 140px;
+    margin: 1rem auto 1.5rem;
+  }
+
+  .content {
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .qrCode {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  animation: fadeIn 0.5s ease-out;
+} 

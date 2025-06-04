@@ -1,0 +1,289 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #ecebe4;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin: 2rem auto 4rem;
+}
+
+.backButton,
+.homeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.backIcon,
+.homeIcon {
+  width: 52px;
+  height: 52px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.leftSection {
+  display: grid;
+  place-items: end;
+  gap: 1.5rem;
+  margin-left: 1.5rem;
+  flex: 0.8 1;
+  align-items: flex-end;
+}
+
+.topicButton {
+  background-color: #dcdcd2bd;
+  border: none;
+  border-radius: 50px;
+  padding: 2rem 7rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4a2222;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.topicButton:hover {
+  background-color: #dadad086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.packageImage {
+  object-fit: contain;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #ffb800;
+  border-radius: 20px;
+  padding: 24rem 2rem 2rem;
+  width: 90%;
+  max-width: 700px;
+  min-height: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  margin-top: 40px;
+}
+
+.modalImageHeader {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  border-radius: 50%;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.modalHeaderImage {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  padding: 0;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.modalHeader h2 {
+  color: #4a2222;
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  color: #4a2222;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 3;
+}
+
+.modalBody {
+  color: #4a2222;
+}
+
+.modalInfo {
+  margin-top: 6rem;
+  font-size: 1.8rem;
+}
+
+.modalInfo h3 {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  margin-top: -5rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h4 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+.fluiditySection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fluidityItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.fluidityItem p {
+  margin-left: 1rem;
+}
+
+.dotsContainer {
+  display: flex;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.dropIcon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .leftSection {
+    width: 100%;
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .topicButton {
+    font-size: 1.2rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+
+  .modalContent {
+    width: 95%;
+    padding: 22rem 1.5rem 1.5rem;
+    margin-top: 30px;
+    min-height: 350px;
+  }
+
+  .modalImageHeader {
+    width: 180px;
+    height: 180px;
+    top: 70px;
+  }
+
+  .modalHeaderImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .modalInfo {
+    margin-top: 5rem;
+  }
+
+  .modalHeader {
+    margin-bottom: 5rem;
+    padding-top: 4rem;
+  }
+
+  .section h4 {
+    font-size: 2.1rem;
+  }
+
+  .section p {
+    font-size: 2.1rem;
+  }
+
+  .dotsContainer {
+    min-width: 100px;
+  }
+
+  .dropIcon {
+    width: 16px;
+    height: 16px;
+  }
+}

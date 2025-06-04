@@ -1,0 +1,44 @@
+
+
+interface EmailData {
+  email: string;
+  date: string;
+  recipe?: string;
+}
+
+const STORAGE_KEY = 'callebaut_emails';
+
+export const saveEmail = async (email: string, recipe?: string): Promise<boolean> => {
+  try {
+    const existingData = localStorage.getItem(STORAGE_KEY);
+    const data = existingData ? JSON.parse(existingData) : { emails: [] };
+
+    const newEmail: EmailData = {
+      email,
+      date: new Date().toISOString(),
+      recipe
+    };
+
+    data.emails.push(newEmail);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    
+    return true;
+  } catch (error) {
+    console.error('Erro ao salvar email:', error);
+    return false;
+  }
+};
+
+export const getEmails = async (): Promise<EmailData[]> => {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    if (!data) return [];
+    
+    const parsedData = JSON.parse(data);
+    return parsedData.emails;
+  } catch (error) {
+    console.error('Erro ao ler emails:', error);
+    return [];
+  }
+}; 

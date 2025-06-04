@@ -1,0 +1,121 @@
+import React from 'react';
+import './RecipesList.css';
+import setaVoltar from '../assets/icones/seta.png';
+import logo from '../assets/icones/logo_bc.png';
+import homeIcon from '../assets/icones/home.png';
+
+// Amargo
+import brigadeiro from '../assets/Receitas/Amargo/brigadeiro.jpg';
+import alfajor from '../assets/Receitas/Amargo/alfajor.jpg';
+import cupcake from '../assets/Receitas/Amargo/cupcake.jpg';
+import mousse from '../assets/Receitas/Amargo/mousse.jpg';
+
+// Ao Leite
+import brigadeiro823 from '../assets/Receitas/Leite/brigadeiro823.jpg';
+import cakepop from '../assets/Receitas/Leite/cakepop.jpg';
+import cookie from '../assets/Receitas/Leite/cookierecheado.jpg';
+import trufa from '../assets/Receitas/Leite/trufa.jpg';
+
+// Branco
+import brigadeirow2 from '../assets/Receitas/Branco/brigadeirow2.jpg';
+import tortaMousse from '../assets/Receitas/Branco/torta.jpg';
+import souffle from '../assets/Receitas/Branco/souffle.jpg';
+import cheesecake from '../assets/Receitas/Branco/cheesecake.jpg';
+
+// Gold
+import brigadeiroGold from '../assets/Receitas/Gold/brigadeirogold.jpg';
+import barrinhaGold from '../assets/Receitas/Gold/barrinha.jpg';
+import cookieBrownie from '../assets/Receitas/Gold/cookie.jpg';
+import tortaChoco from '../assets/Receitas/Gold/tortachoco.jpg';
+
+// Ruby
+import brigadeiroRuby from '../assets/Receitas/Ruby/brigadeiroruby.jpg';
+import snackRuby from '../assets/Receitas/Ruby/snack.jpg';
+import florestaRuby from '../assets/Receitas/Ruby/floresta.jpg';
+import paveRuby from '../assets/Receitas/Ruby/pave.jpg';
+
+interface Recipe {
+  name: string;
+  image: string;
+}
+
+interface RecipesByType {
+  'Amargo': Recipe[];
+  'Ao leite': Recipe[];
+  'Branco': Recipe[];
+  'Gold': Recipe[];
+  'Ruby': Recipe[];
+}
+
+interface RecipesListProps {
+  onBack: () => void;
+  onHome: () => void;
+  chocolateType: keyof RecipesByType;
+}
+
+const RecipesList: React.FC<RecipesListProps> = ({ onBack, onHome, chocolateType }) => {
+  const recipesByType: RecipesByType = {
+    'Amargo': [
+      { name: 'Brigadeiro 811', image: brigadeiro },
+      { name: 'Alfajor de Brigadeiro', image: alfajor },
+      { name: 'Cupcake de Chocolate e Avelã', image: cupcake },
+      { name: 'Mousse de Avelãs', image: mousse }
+    ],
+    'Ao leite': [
+      { name: 'Brigadeiro 823', image: brigadeiro823 },
+      { name: 'Cakepop Pão de Mel', image: cakepop },
+      { name: 'Cookie Recheado de Avelãs', image: cookie },
+      { name: 'Trufas de Caramelo Salgados e Avelã', image: trufa }
+    ],
+    'Branco': [
+      { name: 'Brigadeiro W23', image: brigadeirow2 },
+      { name: 'Torta Mousse Dois Chocolates', image: tortaMousse },
+      { name: 'Cheesecake Soufflé de Chocolate Branco', image: souffle },
+      { name: 'Bombom Cheesecake de Goiabada', image: cheesecake }
+    ],
+    'Gold': [
+      { name: 'Brigadeiro Gold', image: brigadeiroGold },
+      { name: 'Barrinha Gold com Castanhas', image: barrinhaGold },
+      { name: 'Cookie Brownie', image: cookieBrownie },
+      { name: 'Torta ChocoBanoff', image: tortaChoco }
+    ],
+    'Ruby': [
+      { name: 'Brigadeiro Ruby', image: brigadeiroRuby },
+      { name: 'Snack de Coco e Framboesa', image: snackRuby },
+      { name: 'Floresta Ruby', image: florestaRuby },
+      { name: 'Pavê Ruby com Café e Coco', image: paveRuby }
+    ]
+  };
+
+  const recipes = recipesByType[chocolateType];
+
+  return (
+    <div className="container">
+      <div className="header">
+        <button onClick={onBack} className="backButton">
+          <img src={setaVoltar} alt="Voltar" className="backIcon" />
+        </button>
+        <img src={logo} alt="Callebaut Logo" className="logoIcon" />
+        <button onClick={onHome} className="homeButton">
+          <img src={homeIcon} alt="Home" className="homeIcon" />
+        </button>
+      </div>
+
+      <div className="recipes-list">
+        {recipes.map((recipe) => (
+          <div 
+            key={recipe.name} 
+            className="recipe-card"
+          >
+            <div className="recipe-image-container">
+              <img src={recipe.image} alt={recipe.name} />
+            </div>
+            <h3>{recipe.name}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default RecipesList; 
